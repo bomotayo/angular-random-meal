@@ -1,0 +1,61 @@
+<div *ngFor="let meal of meals" class="container">
+  <div class="pic-title-section">
+    <div>
+      <img
+        [src]="meal.strMealThumb"
+        [alt]="meal.strMeal"
+        width="400"
+        height="300"
+      />
+      <div class="category">
+        <div>
+          <h4>
+            Category:<span> {{ meal.strCategory }}</span>
+          </h4>
+        </div>
+        <div>
+          <h4>
+            Area:<span> {{ meal.strArea }}</span>
+          </h4>
+        </div>
+        <div *ngIf="meal.strTags">
+          <h4>
+            Tags:<span> {{ meal.strTags }}</span>
+          </h4>
+        </div>
+        <div>
+          <h2>Ingredients:</h2>
+          <ul *ngFor="let ing of ingredients">
+            <li *ngIf="ing[0] !== '' && ing[1] !== ''; else elseIfBlock">
+              {{ ing[0] }} - {{ ing[1] }}
+            </li>
+            <ng-template #elseIfBlock>
+              <li *ngIf="ing[0] !== '' && ing[1] === ''; else elseBlock">
+                {{ ing[0] }}
+              </li>
+            </ng-template>
+            <ng-template #elseBlock> </ng-template>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="meal-info">
+      <h2>{{ meal.strMeal }}</h2>
+      <p>{{ meal.strInstructions }}</p>
+    </div>
+  </div>
+
+  <div *ngIf="meal.strYoutube" class="video-section">
+    <h2>Video Recipe</h2>
+    <iframe
+      width="560"
+      height="315"
+      [src]="meal.strYoutube | safe"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  </div>
+</div>

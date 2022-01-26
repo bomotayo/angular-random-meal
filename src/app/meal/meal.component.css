@@ -1,0 +1,46 @@
+span {
+  font-weight: normal;
+}
+
+.pic-title-section {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 5%;
+}
+.meal-info {
+  text-align: left;
+  margin-left: 5%;
+}
+
+.video-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.video-section > h2 {
+  text-align: left;
+}
+
+@media only screen and (max-width: 600px) {
+  .category {
+    margin-left: 20%;
+  }
+  .video-section {
+    position: relative;
+    top: -15%;
+  }
+  .pic-title-section {
+    display: block;
+  }
+  .meal-info {
+    text-align: center;
+  }
+  .meal-info > p {
+    margin-left: 1px;
+    padding-left: 30px;
+    padding-right: 40px;
+  }
+}
